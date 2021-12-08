@@ -37,3 +37,5 @@ jobs:
 ```
 
 Result: success, but couldn't get the Github envs
+
+## How to get a PR's author
