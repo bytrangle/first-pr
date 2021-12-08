@@ -5,8 +5,8 @@ on:
     types: [closed]
 
 jobs:
-  merge_job:
-    name: Check if it's a merged PR
+  first_time_contributor:
+    name: Update first-time contributor stats if necessary
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     env:
