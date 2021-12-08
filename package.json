@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/bytrangle/first-pr/issues"
   },
-  "homepage": "https://github.com/bytrangle/first-pr#readme"
+  "homepage": "https://github.com/bytrangle/first-pr#readme",
+  "dependencies": {
+    "isomorphic-fetch": "^3.0.0"
+  }
 }
