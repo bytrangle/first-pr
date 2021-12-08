@@ -103,7 +103,7 @@ jobs:
           "
 ```
 
-### Experiment 2 ()
+### Experiment 2
 ```
 name: Pull request merged
 
@@ -127,3 +127,7 @@ jobs:
             --data-urlencode "q=repo:bytrangle/first-pr is:pr is:closed"
             -H "Accept: application/vnd.github.v3+json" \
 ```
+
+Result:
+- able to get the expected response
+- error: -H: command not found
