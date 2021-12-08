@@ -12,5 +12,6 @@ jobs:
     steps:
       - name: Get Github env
         run: |
-          echo "The full event webhook payload"
-          echo ${{ github.event}}
+          echo ${{ github.event.pull_request}}
+          echo ${{ github.event.pull_request.head}}
+          echo ${{ github.event.pull_request.base }}
