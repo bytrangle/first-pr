@@ -15,3 +15,23 @@ jobs:
         run: |
           echo $GITHUB_ENV
 ```
+Result: skipped
+
+### Experiment 2
+```
+name: Pull request merged
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  merge_job:
+    name: Check if it's a merged PR
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Github env
+        run: |
+          echo $GITHUB_ENV
+```
