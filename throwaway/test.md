@@ -68,3 +68,35 @@ jobs:
         run: |
           echo "This PR was authored by $PR_AUTHOR"
 ```
+
+## How to get list of merged PRs by an author?
+```
+name: Pull request merged
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  merge_job:
+    name: Check if it's a merged PR
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    env:
+      PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+    steps:
+      - name: Get PR author
+        run: |
+          echo "This PR was authored by $PR_AUTHOR"
+          curl --request POST\
+          --url https://api.github.com/graphql \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --data " \
+            { \
+              \"query\": \"query { \
+              search(query: \"repo:$GITHUB_REPOSITORY is:pr is:merged author:${PR_AUTHOR}\", type: ISSUE) {\
+                issueCount
+              }}\"
+            } \
+          "
+```
