@@ -214,3 +214,7 @@ jobs:
 ```
 
 Result: success
+
+### Experiment 3
+Run both `runs` and `uses` in the last step.
+Result: fail because a step cannot have both the `uses` and `run` keys
