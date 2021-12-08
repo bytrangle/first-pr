@@ -12,7 +12,7 @@ jobs:
     env:
       PR_AUTHOR: ${{ github.event.pull_request.user.login }}
     steps:
-      - name: Get PR author
+      - name: Get author's past PRs
         run: |
           pr_count=$(
             curl -G https://api.github.com/search/issues \
@@ -21,3 +21,5 @@ jobs:
             | jq ".total_count" \
           )
           echo "Total PRs: $pr_count"
+      - name: Insert first-time contributor stats
+        uses: ./
