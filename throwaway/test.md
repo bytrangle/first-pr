@@ -70,6 +70,8 @@ jobs:
 ```
 
 ## How to get list of merged PRs by an author?
+
+### Experiment 1 (failed)
 ```
 name: Pull request merged
 
@@ -99,4 +101,29 @@ jobs:
               }}\"
             } \
           "
+```
+
+### Experiment 2 ()
+```
+name: Pull request merged
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  merge_job:
+    name: Check if it's a merged PR
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    env:
+      PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+    steps:
+      - name: Get PR author
+        run: |
+          echo "This PR was authored by $PR_AUTHOR"
+          curl \
+            -G https://api.github.com/search/issues \
+            --data-urlencode "q=repo:bytrangle/first-pr is:pr is:closed"
+            -H "Accept: application/vnd.github.v3+json" \
 ```
