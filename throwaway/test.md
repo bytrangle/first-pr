@@ -171,3 +171,12 @@ Result: still a length response
 Do the same as experiment 4, but replace single quotes with double quotes
 
 Note: The reason it didn't work as I expected was because I didn't escape newline character after `--data-urlencode`.
+
+## How to make an action run Node.js?
+```
+...
+jobs:
+  build:
+    steps:
+      - uses: ./
+```
