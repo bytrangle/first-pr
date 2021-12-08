@@ -26,4 +26,3 @@ jobs:
       - name: Insert first-time contributor stats
         run: |
           echo "${{ env.PR_COUNT }}"
-        uses: ./
