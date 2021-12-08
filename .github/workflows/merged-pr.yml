@@ -21,5 +21,6 @@ jobs:
             | jq ".total_count" \
           )
           echo "Total PRs: $pr_count"
+      - uses: actions/checkout@v2
       - name: Insert first-time contributor stats
         uses: ./
