@@ -21,6 +21,9 @@ jobs:
             | jq ".total_count" \
           )
           echo "Total PRs: $pr_count"
+          echo "PR_COUNT=$pr_count" >> $GITHUB_ENV
       - uses: actions/checkout@v2
       - name: Insert first-time contributor stats
+        run: |
+          echo "${{ env.PR_COUNT }}"
         uses: ./
