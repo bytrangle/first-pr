@@ -35,3 +35,5 @@ jobs:
         run: |
           echo $GITHUB_ENV
 ```
+
+Result: success, but couldn't get the Github envs
