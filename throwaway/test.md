@@ -218,3 +218,35 @@ Result: success
 ### Experiment 3
 Run both `runs` and `uses` in the last step.
 Result: fail because a step cannot have both the `uses` and `run` keys
+
+## How to run a step on a condition
+```
+name: Pull request merged
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  merge_job:
+    name: Check if it's a merged PR
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    env:
+      PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+    steps:
+      - name: Get author's past PRs
+        run: |
+          pr_count=$(
+            curl -G https://api.github.com/search/issues \
+            --data-urlencode "q=repo:$GITHUB_REPOSITORY is:pr is:closed author:$PR_AUTHOR" \
+            -H "Accept: application/vnd.github.v3+json" \
+            | jq ".total_count" \
+          )
+          echo "Total PRs: $pr_count"
+          echo "PR_COUNT=$pr_count" >> $GITHUB_ENV
+      - uses: actions/checkout@v2
+      - name: Insert first-time contributor stats
+        uses: ./
+        if: env.PR_COUNT > 1
+```
