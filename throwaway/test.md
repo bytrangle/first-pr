@@ -46,3 +46,25 @@ jobs:
 Result: success, but couldn't get the Github envs
 
 ## How to get a PR's author
+
+## How to pass set environment variable for a job
+### Experiment 1
+```
+name: Pull request merged
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  merge_job:
+    name: Check if it's a merged PR
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    env:
+      PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+    steps:
+      - name: Get PR author
+        run: |
+          echo "This PR was authored by $PR_AUTHOR"
+```
