@@ -2,6 +2,13 @@ This directory is for testing if a workflow will only run on merged PR.
 
 You can disregard this directory and all of its children content.
 
+## Difference between contexts and environment variables
+Environment variables only exists on the runner executing your job.
+
+Contexts, on the other hand, are available at any point in your workflow, even when default environment variables are unavailable.
+
+For example, you can use contexts with expressions to perform initial processing before the job is routed to a runenr for execution. This allows you to use a context with the conditional `if`keyword to determine whether a step should run.
+
 ## How to trigger an action on merged PR?
 ### Experiment 1
 ```
