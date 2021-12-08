@@ -14,9 +14,10 @@ jobs:
     steps:
       - name: Get PR author
         run: |
-          echo "This PR was authored by $PR_AUTHOR"
-          curl \
-            -G https://api.github.com/search/issues \
-            --data-urlencode "q=repo:$GITHUB_REPOSITORY is:pr is:closed author:$PR_AUTHOR"
+          pr_count=$(
+            curl -G https://api.github.com/search/issues \
+            --data-urlencode "q=repo:$GITHUB_REPOSITORY is:pr is:closed author:$PR_AUTHOR" \
             -H "Accept: application/vnd.github.v3+json" \
-            | jq ".total_count"
+            | jq ".total_count" \
+          )
+          echo "Total PRs: $pr_count"
