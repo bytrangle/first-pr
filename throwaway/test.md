@@ -165,3 +165,7 @@ jobs:
             -H "Accept: application/vnd.github.v3+json" \
             | jq '.total_count'
 ```
+Result: still a length response
+
+### Experiment 5
+Do the same as experiment 4, but replace single quotes with double quotes
