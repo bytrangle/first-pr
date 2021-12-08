@@ -12,6 +12,4 @@ jobs:
     steps:
       - name: Get Github env
         run: |
-          echo ${{ github.event.pull_request}}
-          echo ${{ github.event.pull_request.head}}
-          echo ${{ github.event.pull_request.base }}
+          echo "This PR was authored by ${{ github.event.pull_request.user.login }}"
