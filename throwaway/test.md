@@ -131,3 +131,6 @@ jobs:
 Result:
 - able to get the expected response
 - error: -H: command not found
+
+### Experiment 3
+Do the same as experiment 2, but add a new line for outputing it to JSON using jq.
