@@ -1,15 +1,14 @@
-on:
-  push:
-    branches:
-      - main
-
 name: Pull request merged
 
+on:
+  pull_request:
+    types: [closed]
+
 jobs:
-  build:
+  merge_job:
     name: Check if it's a merged PR
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request'
     steps:
       - name: Get Github env
         run: |
