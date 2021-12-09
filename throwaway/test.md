@@ -315,3 +315,9 @@ Change the parameter in steps from `repo-token` to `repo_token`
 Result: success
 
 Read event JSON file and see if there's any valuable information there.
+
+## Compile Node.js scripts into a single file
+- Install @zeit/ncc
+- Add build script `build: ncc build src/index.js -o dist`
+- Change entry point in `action.yml` to 'dist/index.js'
+REMEMBER to always run `npm run build` before pushing commits.
