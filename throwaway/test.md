@@ -294,3 +294,5 @@ Result: success
 - Number of files changed in PR
 - Number of additions
 - Number of deletions
+
+## Get Github repo token
