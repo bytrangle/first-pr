@@ -284,3 +284,13 @@ jobs:
       #   uses: ./
       #   if: env.PR_COUNT > 1
 ```
+
+Result: success
+
+## Environment variables of interest:
+- PR author
+- PR number
+- PR merged date
+- Number of files changed in PR
+- Number of additions
+- Number of deletions
