@@ -306,3 +306,5 @@ Result: warning: "Unexpected input(s) 'repo-token', valid inputs are ['GITHUB_TO
 
 ### Experiment 2
 Change inputs in metadata from GITHUB_TOKEN to REPO_TOKEN.
+Change the parameter in steps from `repo-token` to `repo_token`
+Result: success
