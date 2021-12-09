@@ -250,3 +250,37 @@ jobs:
         uses: ./
         if: env.PR_COUNT > 1
 ```
+
+## How to print out context information
+```
+name: Pull request merged
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  first_time_contributor:
+    name: Update first-time contributor stats if necessary
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    env:
+      EVENT: ${{ toJSON(github.event) }}
+      PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+    steps:
+      - name: Get author's past PRs
+        run: |
+          pr_count=$(
+            curl -G https://api.github.com/search/issues \
+            --data-urlencode "q=repo:$GITHUB_REPOSITORY is:pr is:closed author:$PR_AUTHOR" \
+            -H "Accept: application/vnd.github.v3+json" \
+            | jq ".total_count" \
+          )
+          echo "Total PRs: $pr_count"
+          echo "PR_COUNT=$pr_count" >> $GITHUB_ENV
+          echo "$EVENT"
+      # - uses: actions/checkout@v2
+      # - name: Insert first-time contributor stats
+      #   uses: ./
+      #   if: env.PR_COUNT > 1
+```
