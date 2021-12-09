@@ -25,5 +25,8 @@
   "homepage": "https://github.com/bytrangle/first-pr#readme",
   "dependencies": {
     "isomorphic-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.3"
   }
 }
