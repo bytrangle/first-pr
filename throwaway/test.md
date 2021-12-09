@@ -294,6 +294,8 @@ Result: success
 
 These can be retrieved from environment variables.
 
+PR info has to be retrieved by accessing `json.pull_request`.
+
 - Number of files changed in PR
 - Number of additions
 - Number of deletions
