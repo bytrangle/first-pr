@@ -1,5 +1,6 @@
 let githubEvent = process.env.EVENT
 githubEvent = JSON.parse(githubEvent)
+console.log(process.env)
 console.log(githubEvent)
 if (process.env.INPUT_REPO_TOKEN) {
   console.log("repo token exists")
