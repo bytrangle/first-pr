@@ -1,4 +1,6 @@
-console.log(process.env)
+let githubEvent = process.env.EVENT
+githubEvent = JSON.parse(githubEvent)
+console.log(githubEvent)
 const now = new Date()
 const nowIso = now.toISOString()
 
