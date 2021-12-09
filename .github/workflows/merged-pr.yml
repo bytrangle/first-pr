@@ -16,7 +16,7 @@ jobs:
       - name: Get author's past PRs
         run: |
           echo "$EVENT"
-      # - uses: actions/checkout@v2
-      # - name: Insert first-time contributor stats
-      #   uses: ./
+      - uses: actions/checkout@v2
+      - name: Insert first-time contributor stats
+        uses: ./
       #   if: env.PR_COUNT > 1
