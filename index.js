@@ -8,8 +8,9 @@ if (!token) {
 } else {
   const repo = process.env.GITHUB_REPOSITORY
   const rawData = fs.readFileSync(process.env.GITHUB_EVENT_PATH)
-  const pr = JSON.parse(rawData)
+  const json = JSON.parse(rawData)
   // console.log(pr)
+  const { pull_request: pr } = json
   const author = pr.user.login
   const mergedAt = pr.merged_at
   console.log({ repo })
