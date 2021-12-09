@@ -287,10 +287,13 @@ jobs:
 
 Result: success
 
-## Environment variables of interest:
+## PR info of interest:
 - PR author
-- PR number
 - PR merged date
+- repo
+
+These can be retrieved from environment variables.
+
 - Number of files changed in PR
 - Number of additions
 - Number of deletions
