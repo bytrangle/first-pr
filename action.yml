@@ -5,7 +5,7 @@ description: GitHub Action to generate TOC.
 author: Trang Le
 
 inputs:
-  GITHUB_TOKEN:
+  REPO_TOKEN:
     description: Secret GitHub API token used to make API requests or git authentication.
     default: ${{ github.token }}
     required: true
