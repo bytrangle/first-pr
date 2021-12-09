@@ -2,8 +2,9 @@
   "name": "first-pr",
   "version": "1.0.0",
   "description": "Get stats for your latest first-time contributor and insert them into a given file",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "ncc build src/index.js -o dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
