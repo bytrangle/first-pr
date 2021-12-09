@@ -296,3 +296,9 @@ Result: success
 - Number of deletions
 
 ## Get Github repo token
+```
+- with:
+    repo-token: ${{ secrets.GITHUB_TOKEN }}
+```
+
+Result: warning: "Unexpected input(s) 'repo-token', valid inputs are ['GITHUB_TOKEN', 'API_TOKEN', 'TARGET_PATHS', 'STAT_TITLE', 'COMMIT_MESSAGE', 'COMMIT_NAME', 'COMMIT_EMAIL']"
