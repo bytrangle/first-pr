@@ -10,6 +10,7 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     env:
+      EVENT: ${{ toJSON(github.event) }}
       PR_AUTHOR: ${{ github.event.pull_request.user.login }}
     steps:
       - name: Get author's past PRs
@@ -22,7 +23,8 @@ jobs:
           )
           echo "Total PRs: $pr_count"
           echo "PR_COUNT=$pr_count" >> $GITHUB_ENV
-      - uses: actions/checkout@v2
-      - name: Insert first-time contributor stats
-        uses: ./
-        if: env.PR_COUNT > 1
+          echo "$EVENT"
+      # - uses: actions/checkout@v2
+      # - name: Insert first-time contributor stats
+      #   uses: ./
+      #   if: env.PR_COUNT > 1
