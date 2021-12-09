@@ -20,5 +20,5 @@ jobs:
       - name: Insert first-time contributor stats
         uses: ./
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
       #   if: env.PR_COUNT > 1
